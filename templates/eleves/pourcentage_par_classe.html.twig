@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pourcentage des Élèves par Classe{% endblock %}
+
+{% block body %}
+<h1>Pourcentage des Élèves ayant une Moyenne Supérieure ou Égale à 10 par Classe</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Classe</th>
+            <th>Nombre Total d'Élèves</th>
+            <th>Nombre d'Élèves avec Moyenne</th>
+            <th>Pourcentage (%)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stats in statistiques %}
+            <tr>
+                <td>{{ stats.classe }}</td>
+                <td>{{ stats.totalEleves }}</td>
+                <td>{{ stats.elevesAvecMoyenne }}</td>
+                <td>{{ stats.pourcentage }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune donnée disponible</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

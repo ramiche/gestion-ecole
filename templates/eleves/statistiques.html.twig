@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Statistiques des Élèves{% endblock %}
+
+{% block body %}
+<h1>Élèves ayant une moyenne supérieure à 10</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Moyenne</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for eleve in eleves %}
+            <tr>
+                <td>{{ eleve.nomEleve  }}</td>
+                <td>{{ eleve.prenomEleve   }}</td>
+                <td>{{ eleve.moyenne  }}</td>
+              
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucun élève avec une moyenne supérieure à 10</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
